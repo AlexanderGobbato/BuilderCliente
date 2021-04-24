@@ -1,0 +1,199 @@
+swagger: "2.0"
+info:
+  title: Agenda
+  description: API para controle de agendas
+  version: 1.0.0
+host: localhost:3000
+basePath: /v1
+schemes:
+  - http
+paths:
+  /clientes:
+    post:
+      tags:
+      - "Clientes"
+      summary: "Gravar os dados do cliente"
+      description: "Os dados do contato são enviados via formulário"
+      operationId: "addContato"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "nome"
+        in: "formData"
+        description: "Nome do cliente"
+        type: "string"
+      - name: "idade"
+        in: "formData"
+        description: "Idade do cliente"
+        type: "string"
+      - name: "empresa"
+        in: "formData"
+        description: "Empresa do cliente"
+        type: "string"
+      - name: "email"
+        in: "formData"
+        description: "Email do cliente"
+        type: "string"
+      responses:
+        "200":
+          description: "Cliente salvo com sucesso"
+        "500":
+          description: "Erro no serviço"
+  
+  /clientes/selectId/{id}:
+    get:
+      tags:
+      - "Clientes"
+      summary: "Selecionar os registors os dados do cliente"
+      description: "Os dados retornados são com base no valor Id informado via path"
+      operationId: "getClienteId"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Código do cliente a ser consultado"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Cliente"
+        "204":
+          description: "Cliente não encontrato"
+        "400":
+          description: "Código inválido"
+        "404":
+          description: "Url inexistente"
+        "500":
+          description: "Erro no serviço"
+          
+  /clientes/selectAll:
+    get:
+      tags:
+      - "Clientes"
+      summary: "Selecionar os registors os dados do cliente"
+      description: "Os dados retornados são com base no valor Id informado via path"
+      operationId: "getClienteAll"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "nome"
+        in: "query"
+        description: "Nome do cliente"
+        required: false
+        type: "string"
+      - name: "email"
+        in: "query"
+        description: "Email do cliente"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Cliente"
+        "204":
+          description: "Cliente não encontrato"
+        "400":
+          description: "Código inválido"
+        "404":
+          description: "Url inexistente"
+        "500":
+          description: "Erro no serviço"
+          
+  /clientes/{id}:
+    delete:
+      tags:
+      - "Clientes"
+      summary: "Excluir clientes por ID"
+      description: "Exclusão do cliente"
+      operationId: "delCliente"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Código do contato a ser excluído"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Cliente excluído com sucesso"
+        "204":
+          description: "Cliente não encontrado"
+        "400":
+          description: "Código inválido"
+        
+        "500":
+          description: "Erro no serviço"
+  
+  /clientes/update:
+    put:
+      tags:
+      - "Clientes"
+      summary: "Alterar os dados do cliente"
+      description: "Os dados do contato são enviados via formulário"
+      operationId: "alterContact"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "nome"
+        in: "formData"
+        description: "Nome do cliente"
+        type: "string"
+      - name: "idade"
+        in: "formData"
+        description: "Idade do cliente"
+        type: "string"
+      - name: "empresa"
+        in: "formData"
+        description: "Empresa do cliente"
+        type: "string"
+      - name: "email"
+        in: "formData"
+        description: "Email do cliente"
+        type: "string"
+      - name: "id"
+        in: "formData"
+        description: "Id do Contato a ser alterado"
+        type: "number"
+        required: true
+      responses:
+        "200":
+          description: "Cliente alterado com sucesso"
+        "500":
+          description: "Erro no serviço"
+  
+definitions:
+  Cliente:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      nome:
+        type: "string"
+      idade:
+        type: "integer"
+        format: "int64"
+      empresa:
+        type: "string"
+      email:
+        type: "string"
+      createAt:
+        type: "string"
+        format: "date-time"
+      updateAt:
+        type: "string"
+        format: "date-time"
+      
+  
+  

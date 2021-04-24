@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "6254e075-389c-40ba-9cdd-c034165c8b69",
+		"name": "Builders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Cliente 1",
+							"type": "text"
+						},
+						{
+							"key": "idade",
+							"value": "41",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Builders 1",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "cliente1@builders.com.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Cliente Alterado",
+							"type": "text"
+						},
+						{
+							"key": "idade",
+							"value": "41",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Builders 1 Alterado",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "cliente1@builders.com.br alterado",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Cliente 1",
+							"type": "text"
+						},
+						{
+							"key": "idade",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Builders",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "cliente@builders.com.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes/selectId/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						"selectId",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Cliente 1",
+							"type": "text"
+						},
+						{
+							"key": "idade",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Builders",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "cliente@builders.com.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar por Nome e/ou Email",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "Cliente 1",
+							"type": "text"
+						},
+						{
+							"key": "idade",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "empresa",
+							"value": "Builders",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "cliente@builders.com.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/clientes/selectAll?nome=2&email=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"clientes",
+						"selectAll"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "2"
+						},
+						{
+							"key": "email",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
